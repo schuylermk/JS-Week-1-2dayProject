@@ -1,0 +1,23 @@
+{
+  "name": "node_template",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Paul-Hess <pauljacksonhess@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Paul-Hess/node_template_js_week_one",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "bourbon": "^4.2.6",
+    "bootstrap": "^3.3.6"
+  }
+}
