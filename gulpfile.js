@@ -6,7 +6,17 @@ var gulp = require('gulp');
  	utilities = require('gulp-util'),
  	del = require('del'),
  	jshint = require('gulp-jshint'),
- 	lib = require('bower-files')(),
+  lib = require('bower-files')({
+    "overrides":{
+      "bootstrap" : {
+        "main": [
+          "less/bootstrap.less",
+          "dist/css/bootstrap.css",
+          "dist/js/bootstrap.js"
+        ]
+      }
+    }
+  }),
  	browserSync = require('browser-sync').create(),
  	sass = require('gulp-sass'),
  	sourcemaps = require('gulp-sourcemaps');
@@ -15,7 +25,7 @@ var buildProduction = utilities.env.production;
 // build sass files into custom css file.
 gulp.task('cssBuild', function() {
   return gulp.src('scss/*.scss')
-    .pipe(sourcemaps.init()) 
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build/css'))
@@ -113,5 +123,3 @@ gulp.task('serve', function() {
 	gulp.watch(['bower.json'], ['bowerBuild']);
 	gulp.watch(['*.html'], ['htmlBuild']);
 });
-
-
